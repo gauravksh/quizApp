@@ -49,10 +49,11 @@ class _HomePageState extends State<HomePage> {
           isClicked = false;
         });
       }
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Please choose one of the options")));
     }
+    // else {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //       const SnackBar(content: Text("Please choose one of the options")));
+    // }
   }
 
   void checkAnswer(bool val) {
@@ -112,7 +113,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: NextButton(nextQuestion: nextQuestion),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
