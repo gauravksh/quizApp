@@ -6,8 +6,8 @@ import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
+  const HomePage({super.key, required this.name});
+  final String name;
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -72,10 +72,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: bg,
       appBar: AppBar(
-        title: const Text(
-          "Dev/Track QuizApp",
+        title: Text(
+          "Welcome ${widget.name}",
           textAlign: TextAlign.center,
-          style: TextStyle(fontStyle: FontStyle.italic),
+          style: const TextStyle(fontStyle: FontStyle.italic),
         ),
         backgroundColor: Colors.cyan,
         shadowColor: Colors.transparent,
