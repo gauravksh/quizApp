@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizapp/screens/result.dart';
 import '../constants.dart';
 import '../models/question.dart';
 import '../widgets/q_widget.dart';
@@ -39,10 +40,10 @@ class _HomePageState extends State<HomePage> {
   void nextQuestion() {
     if (isClicked) {
       if (i == questions.length - 1) {
-        setState(() {
-          i = 0;
-          isClicked = false;
-        });
+        showDialog(
+            context: context,
+            builder: (context) =>
+                Result(total: questions.length, score: score));
       } else {
         setState(() {
           i++;
@@ -70,14 +71,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bg,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",
           textAlign: TextAlign.center,
           style: const TextStyle(fontStyle: FontStyle.italic),
         ),
-        backgroundColor: Colors.cyan,
+        backgroundColor: Color(0xFF864CBF),
         shadowColor: Colors.transparent,
       ),
       body: Container(
