@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/screens/homepage.dart';
+import 'package:quizapp/screens/category.dart';
 
 // ignore: must_be_immutable
 class WelcomeScreen extends StatelessWidget {
@@ -56,9 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HomePage(
-                                  name: uname,
-                                )))
+                            builder: (context) => Category(name: uname,)))
                   },
                   child: Container(
                     width: double.infinity,
