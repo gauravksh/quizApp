@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFF2f3136),
         body: Stack(children: [
           SafeArea(
               child: Padding(
@@ -24,7 +24,7 @@ class WelcomeScreen extends StatelessWidget {
                 Text(
                   "Welcome to Dev/Track's Quiz",
                   style: Theme.of(context).textTheme.headline4?.copyWith(
-                      color: Colors.black, fontWeight: FontWeight.bold),
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
                 // ignore: prefer_const_constructors
@@ -32,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: const Text(
                     "Enter your Name to continue",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
                   ),
                 ),
                 TextField(

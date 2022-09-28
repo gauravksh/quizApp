@@ -71,7 +71,7 @@ class _HackState extends State<Hack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF2f3136),
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",

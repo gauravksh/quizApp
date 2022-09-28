@@ -10,6 +10,7 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Color(0xFF2f3136),
       content: Padding(
         padding: const EdgeInsets.all(45),
         child: Column(
@@ -18,14 +19,14 @@ class Result extends StatelessWidget {
           children: [
             const Text(
               "Score",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color: Colors.white),
             ),
             const SizedBox(
               height: 20,
             ),
             CircleAvatar(
               minRadius: 40,
-              backgroundColor: const Color(0xFF864CBF),
+              backgroundColor: const Color(0xFF2196F3),
               child: Text(
                 "$score/$total",
                 style: const TextStyle(fontSize: 20, color: Colors.white),
@@ -36,8 +37,9 @@ class Result extends StatelessWidget {
             ),
             const Text(
               "Well done",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color: Colors.white),
             ),
+             // ignore: prefer_const_constructors
              SizedBox(height: 40),
              InkWell(
                   onTap: () => {
@@ -52,7 +54,7 @@ class Result extends StatelessWidget {
                     margin: const EdgeInsets.only(bottom: 10),
                     alignment: Alignment.center,
                     decoration: const BoxDecoration(
-                        color: Color(0xFF864CBF),
+                        color: Color(0xFF2196F3),
                         borderRadius: BorderRadius.all(Radius.circular(12))),
                     child: const Text(
                       "Try Again",

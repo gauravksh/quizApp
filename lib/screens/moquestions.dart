@@ -7,44 +7,43 @@ import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
 
-
-
-
-
-class Q4 extends StatefulWidget {
-  const Q4({super.key, required this.name});
+class Revaq extends StatefulWidget {
+  const Revaq({super.key, required this.name});
   final String name;
   @override
-  State<Q4> createState() => _Q4State();
+  State<Revaq> createState() => _revaqState();
 }
-
-class _Q4State extends State<Q4> {
+// ignore: camel_case_types
+class _revaqState extends State<Revaq> {
   List<Question> questions = [
-    Question(id: 1, q: "Who is president ?", op: {
-      "It's me": false,
-      "Sai Prasad": false,
-      "idk": false,
-      "Gautam": true
+    Question(id: 1, q: "Where is the Kalpana Chawla seminar hall present ?", op: {
+      "Swami Vivekananda Block": false,
+      "Applied Sciences Block": false,
+      "Vishweshwarya Block": false,
+      "C V Raman Block": true
     }),
     Question(
         id: 2,
-        q: "When does cycle 1 end",
-        op: {"idc": false, "who knows": false, "28th of sept": true, "2028": false}),
-    Question(id: 3, q: "How do I join dev/track?", op: {
-      "fill the form smh": false,
-      "dont be like siddz": false,
-      "lookout for upcoming announcements regarding new applications": true,
-      "Wish upon a star": false
+        q: "A place where most of the people sing,dance,play, and spend their time?",
+        op: {"At class": false, "Roll me": false, "Saugandhika": true, "Kuvempu Auditorium": false}),
+
+
+    Question(id: 3, q: "What is the name of the CSE club?", op: {
+      "FORCE": false,
+      "FACIT": false,
+      "FACE": true,
+      "DONT KNOW ": false
     }),
-    Question(
-        id: 4,
-        q: "How many tracks do we have?",
-        op: {"5": true, "1": false, "69": false, "around 1000": false}),
 
     Question(
+        id: 4,
+        q: "The name of the seminar hall present in Swami Vivekananda Block ?",
+        op: {"APJ abdul Kalam Hall": false, "Library seminar hall": false, "Kalpana Chawla Hall": false, "Justice Hegde Hall": true}),
+    
+    Question(
         id: 5,
-        q: "What's the endgame of the club?",
-        op: {"CV go brr": false, "Learn and teach stuff": false, "Both": true, "Timepass": false})    
+        q: "Gate closes at",
+        op: {"8:10": false, "Never": true, "Always": false, "8:35": false})
   ];
   int score = 0;
   void nextQuestion() {
@@ -53,7 +52,7 @@ class _Q4State extends State<Q4> {
         showDialog(
             context: context,
             builder: (context) =>
-                Result(total: questions.length, score: score,name: widget.name,));
+                Result(total: questions.length, score: score, name: widget.name,));
       } else {
         setState(() {
           i++;
@@ -61,10 +60,6 @@ class _Q4State extends State<Q4> {
         });
       }
     }
-    // else {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //       const SnackBar(content: Text("Please choose one of the options")));
-    // }
   }
 
   void checkAnswer(bool val) {
@@ -103,8 +98,7 @@ class _Q4State extends State<Q4> {
                 tot: questions.length,
                 q: questions[i].q,
                 points: score),
-            // const Divider(),
-            // const Divider(),
+            
             const SizedBox(
               height: 25,
             ),

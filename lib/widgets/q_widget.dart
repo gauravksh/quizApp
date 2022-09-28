@@ -29,26 +29,26 @@ class queWidget extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .button
-                      ?.copyWith(color: Colors.black),
+                      ?.copyWith(color: Colors.white),
                 ),
                 Text(
                   "Score : $points",
                   style: Theme.of(context)
                       .textTheme
                       .button
-                      ?.copyWith(color: Colors.black),
+                      ?.copyWith(color: Colors.white),
                 )
               ],
             ),
             const Divider(
               thickness: 1,
-              color: Colors.black,
+              color: Colors.white,
             ),
             Text(
               // ignore: unnecessary_string_interpolations
               "$q",
               textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22,color: Colors.white),
             ),
           ],
         ));
