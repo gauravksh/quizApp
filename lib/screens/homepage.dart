@@ -34,7 +34,11 @@ class _HomePageState extends State<HomePage> {
     Question(
         id: 4,
         q: "this question 4",
-        op: {"4": true, "four": true, "3 + 1": true, "5 - 1": true})
+        op: {"SO?": true, "Welp": true, "Hmm": true, "Ok": true}),
+    Question(
+        id: 999,
+        q: "Which question is this?",
+        op: {"5": true, "420": false, "69": false, "999": false})
   ];
   int score = 0;
   void nextQuestion() {
@@ -43,7 +47,7 @@ class _HomePageState extends State<HomePage> {
         showDialog(
             context: context,
             builder: (context) =>
-                Result(total: questions.length, score: score));
+                Result(total: questions.length, score: score,name: widget.name,));
       } else {
         setState(() {
           i++;
@@ -71,14 +75,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF2f3136),
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",
           textAlign: TextAlign.center,
           style: const TextStyle(fontStyle: FontStyle.italic),
         ),
+<<<<<<< HEAD
         backgroundColor: const Color(0xFF864CBF),
+=======
+        backgroundColor: Color.fromARGB(255, 168, 111, 225),
+>>>>>>> ef633e92e712132b08afa562ca6711975b054567
         shadowColor: Colors.transparent,
       ),
       body: Container(

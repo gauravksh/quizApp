@@ -47,7 +47,7 @@ class _HackState extends State<Hack> {
         showDialog(
             context: context,
             builder: (context) =>
-                Result(total: questions.length, score: score));
+                Result(total: questions.length, score: score, name: widget.name,));
       } else {
         setState(() {
           i++;
@@ -71,14 +71,14 @@ class _HackState extends State<Hack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF2f3136),
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",
           textAlign: TextAlign.center,
           style: const TextStyle(fontStyle: FontStyle.italic),
         ),
-        backgroundColor: Color(0xFF864CBF),
+        backgroundColor: const Color(0xFF864CBF),
         shadowColor: Colors.transparent,
       ),
       body: Container(

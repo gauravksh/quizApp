@@ -12,7 +12,7 @@ class NextButton extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-            color: Color(0xFF864CBF), borderRadius: BorderRadius.circular(10)),
+            color: const Color(0xFF2196F3), borderRadius: BorderRadius.circular(10)),
         child: const Text(
           "Next",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
