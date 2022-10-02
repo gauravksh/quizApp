@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
           textAlign: TextAlign.center,
           style: const TextStyle(fontStyle: FontStyle.italic),
         ),
-        backgroundColor: Color(0xFF864CBF),
+        backgroundColor: const Color(0xFF864CBF),
         shadowColor: Colors.transparent,
       ),
       body: Container(
@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            FloatingActionButton.large(onPressed: nextQuestion),
             queWidget(
                 cur: i + 1,
                 tot: questions.length,
