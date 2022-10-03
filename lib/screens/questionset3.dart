@@ -6,13 +6,13 @@ import '../widgets/q_widget.dart';
 import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
-
 class Hack extends StatefulWidget {
   const Hack({super.key, required this.name});
-  final String name;
+  final String? name;
   @override
   State<Hack> createState() => _HackState();
 }
+
 class _HackState extends State<Hack> {
   List<Question> questions = [
     Question(id: 1, q: "Who is the CEO of Google?", op: {
@@ -21,24 +21,36 @@ class _HackState extends State<Hack> {
       "Sergey Brin": false,
       "Tim Cook": false
     }),
-    Question(
-        id: 2,
-        q: "Who is the founder of Amazon?",
-        op: {"Jeff Bezos": true, "Elon Musk": false, "Bill Gates": false, "Steve Jobs": false}),
-    Question(id: 3, q: "Which of the following company wasn't acquired by Byjus?", op: {
-      "Aakash Educational Services Limited": false,
-      "WhiteHat Jr": false,
-      "ALLEN Career Institute": true,
-      "Toppr learning": false
+    Question(id: 2, q: "Who is the founder of Amazon?", op: {
+      "Jeff Bezos": true,
+      "Elon Musk": false,
+      "Bill Gates": false,
+      "Steve Jobs": false
     }),
     Question(
-        id: 4,
-        q: "BharatPe was founded by?",
-        op: {"Aman Gupta": false, "Peyush Bansal": false, "Vineeta Singh": false, "Ashneer Grover": true}),
+        id: 3,
+        q: "Which of the following company wasn't acquired by Byjus?",
+        op: {
+          "Aakash Educational Services Limited": false,
+          "WhiteHat Jr": false,
+          "ALLEN Career Institute": true,
+          "Toppr learning": false
+        }),
+    Question(id: 4, q: "BharatPe was founded by?", op: {
+      "Aman Gupta": false,
+      "Peyush Bansal": false,
+      "Vineeta Singh": false,
+      "Ashneer Grover": true
+    }),
     Question(
         id: 5,
         q: "Nano car was introduced by which automobile gaint in india?",
-        op: {"Maruthi Suzuki": false, "Tata motors": true, "Mahindra": false, "Toyota": false})
+        op: {
+          "Maruthi Suzuki": false,
+          "Tata motors": true,
+          "Mahindra": false,
+          "Toyota": false
+        })
   ];
   int score = 0;
   void nextQuestion() {
@@ -46,8 +58,11 @@ class _HackState extends State<Hack> {
       if (i == questions.length - 1) {
         showDialog(
             context: context,
-            builder: (context) =>
-                Result(total: questions.length, score: score, name: widget.name,));
+            builder: (context) => Result(
+                  total: questions.length,
+                  score: score,
+                  name: widget.name,
+                ));
       } else {
         setState(() {
           i++;
@@ -71,7 +86,7 @@ class _HackState extends State<Hack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2f3136),
+      backgroundColor: const Color(0xFF2f3136),
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",
@@ -93,7 +108,6 @@ class _HackState extends State<Hack> {
                 tot: questions.length,
                 q: questions[i].q,
                 points: score),
-            
             const SizedBox(
               height: 25,
             ),

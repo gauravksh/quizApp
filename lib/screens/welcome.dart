@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/screens/homepage.dart';
+import 'package:quizapp/screens/category.dart';
 
 // ignore: must_be_immutable
 class WelcomeScreen extends StatelessWidget {
@@ -28,14 +28,30 @@ class WelcomeScreen extends StatelessWidget {
                           flex: 2,
                         ),
                         Text(
-                          "Welcome to Dev/Track's Quiz",
+                          "Welcome to",
                           style: Theme.of(context)
                               .textTheme
                               .headline4
                               ?.copyWith(
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25),
                         ),
+                        Text("Dev/Track's",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline4
+                                ?.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 60)),
+                        Text("Quiz",
+                            style:
+                                Theme.of(context).textTheme.headline4?.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 30,
+                                    )),
                         const Spacer(),
                         // ignore: prefer_const_constructors
                         Padding(
@@ -76,7 +92,7 @@ class WelcomeScreen extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage(
+                                    builder: (context) => Category(
                                           name: uname,
                                         )))
                           },

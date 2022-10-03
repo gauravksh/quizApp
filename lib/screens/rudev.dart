@@ -6,14 +6,9 @@ import '../widgets/q_widget.dart';
 import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
-
-
-
-
-
 class Q4 extends StatefulWidget {
   const Q4({super.key, required this.name});
-  final String name;
+  final String? name;
   @override
   State<Q4> createState() => _Q4State();
 }
@@ -26,10 +21,12 @@ class _Q4State extends State<Q4> {
       "idk": false,
       "Gautam": true
     }),
-    Question(
-        id: 2,
-        q: "When does cycle 1 end",
-        op: {"idc": false, "who knows": false, "28th of sept": true, "2028": false}),
+    Question(id: 2, q: "When does cycle 1 end", op: {
+      "idc": false,
+      "who knows": false,
+      "28th of sept": true,
+      "2028": false
+    }),
     Question(id: 3, q: "How do I join dev/track?", op: {
       "fill the form smh": false,
       "dont be like siddz": false,
@@ -40,11 +37,12 @@ class _Q4State extends State<Q4> {
         id: 4,
         q: "How many tracks do we have?",
         op: {"5": true, "1": false, "69": false, "around 1000": false}),
-
-    Question(
-        id: 5,
-        q: "What's the endgame of the club?",
-        op: {"CV go brr": false, "Learn and teach stuff": false, "Both": true, "Timepass": false})    
+    Question(id: 5, q: "What's the endgame of the club?", op: {
+      "CV go brr": false,
+      "Learn and teach stuff": false,
+      "Both": true,
+      "Timepass": false
+    })
   ];
   int score = 0;
   void nextQuestion() {
@@ -52,8 +50,11 @@ class _Q4State extends State<Q4> {
       if (i == questions.length - 1) {
         showDialog(
             context: context,
-            builder: (context) =>
-                Result(total: questions.length, score: score,name: widget.name,));
+            builder: (context) => Result(
+                  total: questions.length,
+                  score: score,
+                  name: widget.name,
+                ));
       } else {
         setState(() {
           i++;
@@ -81,7 +82,7 @@ class _Q4State extends State<Q4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2f3136),
+      backgroundColor: const Color(0xFF2f3136),
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",

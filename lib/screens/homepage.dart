@@ -8,7 +8,7 @@ import '../widgets/next_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.name});
-  final String name;
+  final String? name;
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -46,8 +46,11 @@ class _HomePageState extends State<HomePage> {
       if (i == questions.length - 1) {
         showDialog(
             context: context,
-            builder: (context) =>
-                Result(total: questions.length, score: score,name: widget.name,));
+            builder: (context) => Result(
+                  total: questions.length,
+                  score: score,
+                  name: widget.name,
+                ));
       } else {
         setState(() {
           i++;
@@ -75,18 +78,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2f3136),
+      backgroundColor: const Color(0xFF2f3136),
       appBar: AppBar(
         title: Text(
           "Welcome ${widget.name}",
           textAlign: TextAlign.center,
           style: const TextStyle(fontStyle: FontStyle.italic),
         ),
-<<<<<<< HEAD
-        backgroundColor: const Color(0xFF864CBF),
-=======
-        backgroundColor: Color.fromARGB(255, 168, 111, 225),
->>>>>>> ef633e92e712132b08afa562ca6711975b054567
+        backgroundColor: const Color.fromARGB(255, 168, 111, 225),
         shadowColor: Colors.transparent,
       ),
       body: Container(
