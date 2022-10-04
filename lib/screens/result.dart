@@ -6,10 +6,12 @@ class Result extends StatelessWidget {
       {super.key,
       required this.total,
       required this.score,
-      required this.name});
+      required this.name,
+      required this.flag});
   final int score;
   final int total;
   final String? name;
+  final bool flag;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -55,9 +57,7 @@ class Result extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Category(
-                              name: name,
-                            )))
+                        builder: (context) => Category(name: name, flag: flag)))
               },
               child: Container(
                 width: double.infinity,

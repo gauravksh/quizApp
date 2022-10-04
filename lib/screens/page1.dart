@@ -16,7 +16,10 @@ class Page1 extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasData) {
               final user = FirebaseAuth.instance.currentUser!;
-              return Category(name: user.displayName);
+              return Category(
+                name: user.displayName,
+                flag: true,
+              );
             } else if (snapshot.hasError) {
               return const Center(child: Text("Something went wrong!"));
             } else {

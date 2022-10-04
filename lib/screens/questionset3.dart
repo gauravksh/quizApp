@@ -7,8 +7,9 @@ import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
 class Hack extends StatefulWidget {
-  const Hack({super.key, required this.name});
+  const Hack({super.key, required this.name, required this.flag});
   final String? name;
+  final bool flag;
   @override
   State<Hack> createState() => _HackState();
 }
@@ -62,6 +63,7 @@ class _HackState extends State<Hack> {
                   total: questions.length,
                   score: score,
                   name: widget.name,
+                  flag: widget.flag,
                 ));
       } else {
         setState(() {

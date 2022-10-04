@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:quizapp/provider/google_sign_in.dart';
+import 'package:quizapp/screens/page1.dart';
 import 'package:quizapp/screens/result.dart';
 import '../constants.dart';
 import '../models/question.dart';
 import '../widgets/q_widget.dart';
 import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
+import "package:firebase_auth/firebase_auth.dart";
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.name});
+  const HomePage({super.key, required this.name, required this.flag});
   final String? name;
+  final bool flag;
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -50,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                   total: questions.length,
                   score: score,
                   name: widget.name,
+                  flag: widget.flag,
                 ));
       } else {
         setState(() {
@@ -73,29 +80,77 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Widget getWidget() {
+    if (widget.flag) {
+      final user = FirebaseAuth.instance.currentUser!;
+      return Padding(
+        padding:
+            const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(user.photoURL!),
+            ),
+            IconButton(
+                onPressed: () {
+                  final provider =
+                      Provider.of<GoogleSignInProvider>(context, listen: false);
+                  provider.googleLogout();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => const Page1())));
+                },
+                icon: const FaIcon(
+                  FontAwesomeIcons.rightFromBracket,
+                  color: Colors.white,
+                ))
+          ],
+        ),
+      );
+    } else {
+      return Padding(
+        padding:
+            const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 20),
+        child: Row(
+          children: [
+            Text(
+              "Welcome ${widget.name}".toUpperCase(),
+              // textAlign: TextAlign.left,
+              style: const TextStyle(
+                  // fontStyle: FontStyle.italic,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   bool isClicked = false;
   int i = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF2f3136),
-      appBar: AppBar(
-        title: Text(
-          "Welcome ${widget.name}",
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontStyle: FontStyle.italic),
-        ),
-        backgroundColor: const Color.fromARGB(255, 168, 111, 225),
-        shadowColor: Colors.transparent,
-      ),
+      // backgroundColor: const Color.fromARGB(255, 168, 111, 225),
+      // shadowColor: Colors.transparent,
+
       body: Container(
         alignment: Alignment.topLeft,
         width: double.infinity,
         padding: const EdgeInsets.all(10),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/bg2.png"), fit: BoxFit.cover),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            FloatingActionButton.large(onPressed: nextQuestion),
+            getWidget(),
+            // FloatingActionButton.large(onPressed: nextQuestion),
             queWidget(
                 cur: i + 1,
                 tot: questions.length,
@@ -103,9 +158,7 @@ class _HomePageState extends State<HomePage> {
                 points: score),
             // const Divider(),
             // const Divider(),
-            const SizedBox(
-              height: 25,
-            ),
+
             for (int idx = 0; idx < 4; idx++)
               GestureDetector(
                 onTap: () => checkAnswer(questions[i].op.values.toList()[idx]),

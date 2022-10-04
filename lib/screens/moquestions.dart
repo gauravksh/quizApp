@@ -7,8 +7,9 @@ import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
 class Revaq extends StatefulWidget {
-  const Revaq({super.key, required this.name});
+  const Revaq({super.key, required this.name, required this.flag});
   final String? name;
+  final bool flag;
   @override
   State<Revaq> createState() => _revaqState();
 }
@@ -61,10 +62,10 @@ class _revaqState extends State<Revaq> {
         showDialog(
             context: context,
             builder: (context) => Result(
-                  total: questions.length,
-                  score: score,
-                  name: widget.name,
-                ));
+                total: questions.length,
+                score: score,
+                name: widget.name,
+                flag: widget.flag));
       } else {
         setState(() {
           i++;

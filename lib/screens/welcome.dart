@@ -64,10 +64,12 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                         ),
                         TextField(
+                          style: const TextStyle(color: Colors.white),
                           decoration: const InputDecoration(
                             // filled: true,
                             fillColor: Colors.white,
                             hintText: "Nickname",
+                            focusColor: Colors.white,
                             prefixIcon: Icon(
                               Icons.person,
                               color: Colors.white,
@@ -94,6 +96,7 @@ class WelcomeScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => Category(
                                           name: uname,
+                                          flag: false,
                                         )))
                           },
                           child: Container(
@@ -102,16 +105,17 @@ class WelcomeScreen extends StatelessWidget {
                             margin: const EdgeInsets.only(bottom: 30),
                             alignment: Alignment.center,
                             decoration: const BoxDecoration(
-                                color: Colors.white,
+                                // color: Colors.redAccent,
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/bg.png"),
+                                    image: AssetImage(
+                                        "assets/images/buttonBG.png"),
                                     fit: BoxFit.cover),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(12))),
+                                    BorderRadius.all(Radius.circular(40))),
                             child: const Text(
                               "Let's Start",
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  color: Colors.black,
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             ),

@@ -7,8 +7,9 @@ import '../widgets/option_card.dart';
 import '../widgets/next_button.dart';
 
 class Q4 extends StatefulWidget {
-  const Q4({super.key, required this.name});
+  const Q4({super.key, required this.name, required this.flag});
   final String? name;
+  final bool flag;
   @override
   State<Q4> createState() => _Q4State();
 }
@@ -54,6 +55,7 @@ class _Q4State extends State<Q4> {
                   total: questions.length,
                   score: score,
                   name: widget.name,
+                  flag: widget.flag,
                 ));
       } else {
         setState(() {

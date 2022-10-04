@@ -10,14 +10,18 @@ class OptionCard extends StatelessWidget {
   // final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: clr,
-      child: ListTile(
-        hoverColor: Colors.blueGrey,
-        enableFeedback: true,
-        title: Text(
-          option,
-          style: const TextStyle(fontSize: 20),
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Card(
+        color: clr,
+        margin: const EdgeInsets.all(5),
+        child: ListTile(
+          hoverColor: Colors.blueGrey,
+          enableFeedback: true,
+          title: Text(
+            option,
+            style: const TextStyle(fontSize: 18),
+          ),
         ),
       ),
     );
